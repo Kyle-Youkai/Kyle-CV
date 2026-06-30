@@ -1,6 +1,16 @@
 const languageButton = document.querySelector(".language-toggle");
 let currentLanguage = localStorage.getItem("preferredLanguage") === "en" ? "en" : "zh";
 
+const cvButton = document.createElement("button");
+cvButton.className = "header-link cv-placeholder";
+cvButton.type = "button";
+cvButton.disabled = true;
+cvButton.setAttribute("aria-disabled", "true");
+cvButton.setAttribute("data-zh", "CV · 暂未公开");
+cvButton.setAttribute("data-en", "CV · PRIVATE");
+cvButton.textContent = "CV · 暂未公开";
+document.querySelector(".header-actions").insertBefore(cvButton, languageButton);
+
 const currentPage = window.location.pathname.split("/").pop() || "index.html";
 const detailPages = [
   { file: "about.html", number: "01", zh: "关于", en: "About" },
@@ -20,6 +30,25 @@ if (currentPage !== "index.html") {
     .join("");
   document.querySelector(".header-actions").prepend(sectionNav);
 }
+
+const mascot = document.createElement("aside");
+mascot.className = "mascot";
+mascot.setAttribute("aria-label", "Website mascot");
+mascot.innerHTML = `
+  <div class="mascot-speech" data-zh="嗨，欢迎来访！" data-en="Hi, welcome!">嗨，欢迎来访！</div>
+  <button class="mascot-character" type="button" aria-label="Say hi">
+    <img src="Q版形象.gif" alt="肖友凯的 Q 版形象" data-zh-alt="肖友凯的 Q 版形象" data-en-alt="Kyle Xiao's cartoon character" />
+  </button>`;
+document.body.append(mascot);
+mascot.querySelector(".mascot-character").addEventListener("click", () => {
+  mascot.classList.remove("is-greeting");
+  requestAnimationFrame(() => mascot.classList.add("is-greeting"));
+});
+
+const breathingSpace = document.createElement("div");
+breathingSpace.className = "page-breathing-space";
+breathingSpace.setAttribute("aria-hidden", "true");
+document.body.append(breathingSpace);
 
 function setLanguage(language) {
   currentLanguage = language;
