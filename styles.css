@@ -77,8 +77,13 @@ html[data-language="en"] .language-indicator { transform: translateX(36px); }
 .profile-copy { align-self: center; }
 .eyebrow { display: flex; align-items: center; gap: .65rem; margin: 0 0 1.2rem; color: var(--blue-dark); font-family: var(--mono); font-size: .64rem; letter-spacing: .13em; text-transform: uppercase; }
 .eyebrow::before { content: ""; width: 24px; height: 1px; background: var(--blue); }
-.profile-copy h1 { margin: 0; font-family: var(--serif); font-size: clamp(3.6rem, 6.2vw, 7.6rem); line-height: .82; font-weight: 400; letter-spacing: -.045em; }
-.profile-copy h1 em { display: block; margin-top: .18em; color: var(--blue); font-weight: 400; }
+.profile-copy h1 { margin: 0; font-family: var(--serif); font-weight: 400; }
+.bilingual-name { display: flex; flex-direction: column; align-items: center; gap: .55rem; line-height: .92; }
+.bilingual-name span { display: block; transition: color .35s ease, font-size .35s ease, opacity .35s ease, transform .35s ease; }
+.bilingual-name .name-zh { font-size: clamp(5rem, 8vw, 8.5rem); color: var(--ink); }
+.bilingual-name .name-en { font-size: clamp(2rem, 3.35vw, 3.75rem); color: var(--blue); }
+html[data-language="en"] .bilingual-name .name-en { order: -1; font-size: clamp(3.5rem, 5.6vw, 6.4rem); color: var(--ink); }
+html[data-language="en"] .bilingual-name .name-zh { font-size: clamp(2.2rem, 3.5vw, 3.8rem); color: var(--blue); }
 .welcome { margin: 2rem 0 0; font-family: var(--serif); font-size: clamp(1.65rem, 2.5vw, 2.6rem); line-height: 1.05; }
 .role { max-width: 390px; margin: 1.1rem 0 0; color: var(--muted); line-height: 1.65; font-size: .92rem; }
 .profile-links { display: flex; flex-wrap: wrap; gap: .65rem; margin-top: 2rem; }
@@ -219,7 +224,7 @@ html[data-language="en"] .language-indicator { transform: translateX(36px); }
 .home-page .profile-copy::before { content: ""; position: absolute; left: 50%; top: 0; width: 64px; height: 1px; transform: translateX(-50%); background: var(--blue); }
 .home-page .eyebrow { justify-content: center; margin-bottom: 1.5rem; }
 .home-page .eyebrow::after { content: ""; width: 24px; height: 1px; background: var(--blue); }
-.home-page .profile-copy h1 { font-size: clamp(5rem, 8vw, 8.5rem); }
+.home-page .profile-copy h1 { width: 100%; }
 .home-page .profile-links { justify-content: center; width: min(620px, 100%); margin: 2.4rem auto 0; padding-top: 1.5rem; border-top: 1px solid rgba(21,54,77,.14); }
 .page-main { padding-bottom: clamp(9rem, 17vh, 14rem); }
 .page-breathing-space { position: relative; height: clamp(140px, 24vh, 280px); overflow: hidden; pointer-events: none; }
@@ -262,5 +267,8 @@ html[data-language="en"] .language-indicator { transform: translateX(36px); }
   .home-chapter > .page-hero h1 { font-size: 4.2rem; }
   .home-page .cover-profile { width: 100%; min-height: auto; grid-template-columns: 1fr; gap: 2.2rem; }
   .home-page .cover-portrait { width: 190px; height: 190px; min-height: 0; }
-  .home-page .profile-copy h1 { font-size: 5rem; }
+  .bilingual-name .name-zh { font-size: 5rem; }
+  .bilingual-name .name-en { font-size: 2rem; }
+  html[data-language="en"] .bilingual-name .name-en { font-size: clamp(2.75rem, 11vw, 4rem); }
+  html[data-language="en"] .bilingual-name .name-zh { font-size: 2.2rem; }
 }
