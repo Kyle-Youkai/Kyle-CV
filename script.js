@@ -12,24 +12,30 @@ cvButton.textContent = "CV · 暂未公开";
 document.querySelector(".header-actions").insertBefore(cvButton, languageButton);
 
 const currentPage = window.location.pathname.split("/").pop() || "index.html";
-const detailPages = [
-  { file: "about.html", number: "01", zh: "关于", en: "About" },
-  { file: "research.html", number: "02", zh: "研究", en: "Research" },
-  { file: "publications.html", number: "03", zh: "成果", en: "Work" },
-  { file: "experience.html", number: "04", zh: "经历", en: "Experience" },
+const sitePages = [
+  { file: "index.html", anchor: "#home", number: "00", zh: "网站首页", en: "Home" },
+  { file: "about.html", anchor: "#profile", number: "01", zh: "个人简介", en: "Profile" },
+  { file: "research.html", anchor: "#research", number: "02", zh: "研究方向", en: "Research" },
+  { file: "publications.html", anchor: "#publications", number: "03", zh: "学术成果", en: "Work" },
+  { file: "experience.html", anchor: "#experience", number: "04", zh: "学术经历", en: "Experience" },
 ];
 
 if (currentPage !== "index.html") {
   document.body.classList.add("detail-page");
-  const sectionNav = document.createElement("nav");
-  sectionNav.className = "section-nav";
-  sectionNav.setAttribute("aria-label", "Section navigation");
-  sectionNav.innerHTML = detailPages
-    .filter((page) => page.file !== currentPage)
-    .map((page) => `<a class="section-switch" href="${page.file}"><small>${page.number}</small><span data-zh="${page.zh}" data-en="${page.en}">${page.zh}</span></a>`)
-    .join("");
-  document.querySelector(".header-actions").prepend(sectionNav);
+} else {
+  document.body.classList.add("home-page");
 }
+
+const sectionNav = document.createElement("nav");
+sectionNav.className = "section-nav";
+sectionNav.setAttribute("aria-label", "Section navigation");
+sectionNav.innerHTML = sitePages
+  .map((page) => {
+    const isCurrent = page.file === currentPage;
+    return `<a class="section-switch${isCurrent ? " is-current" : ""}" href="${page.file}"${isCurrent ? ' aria-current="page"' : ""}><small>${page.number}</small><span data-zh="${page.zh}" data-en="${page.en}">${page.zh}</span></a>`;
+  })
+  .join("");
+document.querySelector(".header-actions").prepend(sectionNav);
 
 const mascot = document.createElement("aside");
 mascot.className = "mascot";
@@ -37,7 +43,7 @@ mascot.setAttribute("aria-label", "Website mascot");
 mascot.innerHTML = `
   <div class="mascot-speech" data-zh="嗨，欢迎来访！" data-en="Hi, welcome!">嗨，欢迎来访！</div>
   <button class="mascot-character" type="button" aria-label="Say hi">
-    <img src="Q版形象.gif" alt="肖友凯的 Q 版形象" data-zh-alt="肖友凯的 Q 版形象" data-en-alt="Kyle Xiao's cartoon character" />
+    <img src="图像资源/Q版形象-透明.png" alt="肖友凯的 Q 版形象" data-zh-alt="肖友凯的 Q 版形象" data-en-alt="Kyle Xiao's cartoon character" />
   </button>`;
 document.body.append(mascot);
 mascot.querySelector(".mascot-character").addEventListener("click", () => {
@@ -81,7 +87,17 @@ function setLanguage(language) {
 languageButton.addEventListener("click", () => setLanguage(currentLanguage === "zh" ? "en" : "zh"));
 setLanguage(currentLanguage);
 
-document.querySelectorAll(".portal-card").forEach((card) => {
+const emailToggle = document.querySelector(".email-toggle");
+const emailAddress = document.querySelector(".email-address");
+if (emailToggle && emailAddress) {
+  emailToggle.addEventListener("click", () => {
+    const expanded = emailToggle.getAttribute("aria-expanded") === "true";
+    emailToggle.setAttribute("aria-expanded", String(!expanded));
+    emailAddress.hidden = expanded;
+  });
+}
+
+document.querySelectorAll(".portal-card, .timeline-item, .publication-item, .interest-item, .conference-item").forEach((card) => {
   card.addEventListener("pointermove", (event) => {
     const bounds = card.getBoundingClientRect();
     card.style.setProperty("--pointer-x", `${event.clientX - bounds.left}px`);

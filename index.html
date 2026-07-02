@@ -27,52 +27,61 @@
       </div>
     </header>
 
-    <main class="cover">
+    <main class="cover home-scroll-target" id="home" data-section="index.html">
       <section class="cover-profile reveal">
         <div class="cover-portrait">
-          <img src="头像.jpg" alt="肖友凯的个人照片" data-zh-alt="肖友凯的个人照片" data-en-alt="Portrait of Youkai (Kyle) Xiao" />
+          <img src="图像资源/头像.jpg" alt="肖友凯的个人照片" data-zh-alt="肖友凯的个人照片" data-en-alt="Portrait of Youkai (Kyle) Xiao" />
         </div>
         <div class="profile-copy">
           <p class="eyebrow" data-zh="市场营销 · 消费者行为" data-en="MARKETING · CONSUMER BEHAVIOR">市场营销 · 消费者行为</p>
           <h1><span data-zh="肖友凯" data-en="Youkai">肖友凯</span><em data-zh="Kyle Xiao" data-en="Kyle Xiao">Kyle Xiao</em></h1>
-          <p class="welcome" data-zh="欢迎来到我的主页" data-en="Welcome to my homepage">欢迎来到我的主页</p>
-          <p class="role" data-zh="南京大学商学院市场营销博士生，关注消费者心理、感官体验、广告设计与决策。" data-en="PhD candidate in Marketing at Nanjing University, studying consumer psychology, sensory experience, advertising design, and decision making.">南京大学商学院市场营销博士生，关注消费者心理、感官体验、广告设计与决策。</p>
           <div class="profile-links">
             <a class="pill-link" href="https://orcid.org/0000-0003-2931-7354" target="_blank" rel="noreferrer">ORCID ↗</a>
+            <button class="pill-link email-toggle" type="button" aria-expanded="false">Email</button>
+            <a class="email-address" href="mailto:youkaixiao@smail.nju.edu.cn" hidden>youkaixiao@smail.nju.edu.cn ↗</a>
           </div>
         </div>
       </section>
 
-      <nav class="portal reveal" aria-label="主页导航" data-zh-aria="主页导航" data-en-aria="Homepage navigation">
-        <a class="portal-card" href="about.html">
-          <div class="card-top"><span class="card-index">01</span><span class="card-arrow">↗</span></div>
-          <div class="card-bottom">
-            <h2 data-zh="关于我" data-en="About me">关于我</h2>
-            <p data-zh="华中科技大学市场营销本科、计算机科学辅修；现为南京大学市场营销博士生。" data-en="B.S. in Marketing with a minor in Computer Science at HUST; now a PhD candidate in Marketing at Nanjing University.">华中科技大学市场营销本科、计算机科学辅修；现为南京大学市场营销博士生。</p>
-          </div>
-        </a>
-        <a class="portal-card" href="research.html">
-          <div class="card-top"><span class="card-index">02</span><span class="card-arrow">↗</span></div>
-          <div class="card-bottom">
-            <h2 data-zh="研究方向" data-en="Research">研究方向</h2>
-            <p data-zh="消费者心理、感官体验、广告设计、信息加工、食品消费与决策。" data-en="Consumer psychology, sensory experience, advertising design, information processing, food consumption, and decision making.">消费者心理、感官体验、广告设计、信息加工、食品消费与决策。</p>
-          </div>
-        </a>
-        <a class="portal-card" href="publications.html">
-          <div class="card-top"><span class="card-index">03</span><span class="card-arrow">↗</span></div>
-          <div class="card-bottom">
-            <h2 data-zh="学术成果" data-en="Publications">学术成果</h2>
-            <p data-zh="查看已发表论文、在审稿件、工作论文与会议报告。" data-en="Journal articles, manuscripts under review, working papers, and conference presentations.">查看已发表论文、在审稿件、工作论文与会议报告。</p>
-          </div>
-        </a>
-        <a class="portal-card" href="experience.html">
-          <div class="card-top"><span class="card-index">04</span><span class="card-arrow">↗</span></div>
-          <div class="card-bottom">
-            <h2 data-zh="学术经历" data-en="Experience">学术经历</h2>
-            <p data-zh="教学、学术服务、会议经历以及所获荣誉。" data-en="Teaching, academic service, conference experience, and selected honors.">教学、学术服务、会议经历以及所获荣誉。</p>
-          </div>
-        </a>
-      </nav>
     </main>
+
+    <section class="home-chapter home-scroll-target reveal" id="profile" data-section="about.html">
+      <section class="page-hero"><span class="page-number">01 / PROFILE</span><div><h1 data-zh-html="<span>个人</span><em>简介</em>" data-en-html="<span>Personal</span><em>profile</em>"><span>个人</span><em>简介</em></h1></div></section>
+      <section class="content-section education-section"><span class="content-label" data-zh="教育背景" data-en="EDUCATION">教育背景</span><div class="content-body">
+        <article class="timeline-item education-card"><img class="school-mark" src="图像资源/南大标识.png" alt="南京大学标识" /><div class="education-copy"><p class="timeline-year">2022 — 2027</p><h3 data-zh="市场营销博士" data-en="Ph.D. in Marketing">市场营销博士</h3><p data-zh="南京大学 · 商学院 · 中国南京" data-en="Business School, Nanjing University · Nanjing, China">南京大学 · 商学院 · 中国南京</p></div><img class="school-name" src="图像资源/南大名字.png" alt="南京大学" /></article>
+        <article class="timeline-item education-card"><img class="school-mark" src="图像资源/华科标识.png" alt="华中科技大学标识" /><div class="education-copy"><p class="timeline-year">2018 — 2022</p><h3 data-zh="市场营销学士" data-en="B.S. in Marketing">市场营销学士</h3><p data-zh="华中科技大学 · 管理学院 · 中国武汉" data-en="School of Management, Huazhong University of Science and Technology · Wuhan, China">华中科技大学 · 管理学院 · 中国武汉</p></div><img class="school-name" src="图像资源/华科名字.png" alt="华中科技大学" /></article>
+      </div></section>
+    </section>
+
+    <section class="home-chapter home-scroll-target reveal" id="research" data-section="research.html">
+      <section class="page-hero"><span class="page-number">02 / RESEARCH</span><div><h1 data-zh-html="<span>研究</span><em>方向</em>" data-en-html="<span>Research</span><em>interests</em>"><span>研究</span><em>方向</em></h1></div></section>
+      <section class="content-section"><span class="content-label" data-zh="研究兴趣" data-en="INTERESTS">研究兴趣</span><div class="content-body interest-grid">
+        <article class="interest-item"><h3 data-zh="消费者心理" data-en="Consumer Psychology">消费者心理</h3></article><article class="interest-item"><h3 data-zh="感官体验" data-en="Sensory Experience">感官体验</h3></article><article class="interest-item"><h3 data-zh="广告设计" data-en="Advertising Design">广告设计</h3></article><article class="interest-item"><h3 data-zh="行为决策" data-en="Behavioral Decision Making">行为决策</h3></article><article class="interest-item"><h3 data-zh="信息加工" data-en="Information Processing">信息加工</h3></article><article class="interest-item"><h3 data-zh="健康消费" data-en="Health Consumption">健康消费</h3></article>
+      </div></section>
+    </section>
+
+    <section class="home-chapter home-scroll-target reveal" id="publications" data-section="publications.html">
+      <section class="page-hero"><span class="page-number">03 / PUBLICATIONS</span><div><h1 data-zh-html="<span>学术</span><em>成果</em>" data-en-html="<span>Selected</span><em>work</em>"><span>学术</span><em>成果</em></h1></div></section>
+      <section class="content-section"><span class="content-label" data-zh="期刊论文" data-en="JOURNAL ARTICLES">期刊论文</span><div class="content-body">
+        <article class="publication-item"><span class="publication-year">2026</span><div><h2>Denser Advertising Design, Higher Food Calories: How Visual Density Affects Consumer Responses to Food Advertising</h2><p>Youkai (Kyle) Xiao, Yunhui Huang*, Xing-Yu (Marcos) Chu</p><p>Journal of Advertising Research</p></div><span></span></article>
+        <article class="publication-item"><span class="publication-year">2025</span><div><h2 data-zh="动态标识的时间隐喻及其对营销效果的影响" data-en="The Temporal Metaphor of Animated Logos and Its Influence on Marketing Effectiveness">动态标识的时间隐喻及其对营销效果的影响</h2><p data-zh="肖友凯；朱东红" data-en="Youkai (Kyle) Xiao, Donghong Zhu*">肖友凯；朱东红</p><p data-zh="《营销科学学报》2025(03)" data-en="Journal of Marketing Science, 2025(03)">《营销科学学报》2025(03)</p></div><span></span></article>
+        <article class="publication-item"><span class="publication-year">2024</span><div><h2 data-zh="语义还是谐音：品牌个性与双关类型的匹配" data-en="Semantic versus Homophonic Puns: The Match Between Brand Personality and Pun Types in Advertisements">语义还是谐音：品牌个性与双关类型的匹配</h2><p data-zh="黄韫慧；肖友凯；初星宇；卢玥" data-en="Yunhui Huang, Youkai (Kyle) Xiao, Xing-Yu (Marcos) Chu*, Yue Lu">黄韫慧；肖友凯；初星宇；卢玥</p><p data-zh="《心理学报》2024(11)" data-en="Acta Psychologica Sinica, 2024(11)">《心理学报》2024(11)</p></div><span></span></article>
+      </div></section>
+      <section class="content-section"><span class="content-label" data-zh="会议论文" data-en="CONFERENCE PAPERS">会议论文</span><div class="content-body conference-grid">
+        <article class="conference-item" data-year="2026"><div><span class="publication-year">APMA · 2026</span><h3>Denser Advertising Design, Higher Food Calories: How Visual Density Affects Food Advertising Effectiveness</h3><p>Youkai (Kyle) Xiao*, Yunhui Huang, Xing-Yu (Marcos) Chu</p></div><p class="conference-venue" data-zh="中国澳门 · 亚太营销学院年会" data-en="MACAO, CHINA · APMA ANNUAL CONFERENCE">中国澳门 · 亚太营销学院年会</p></article>
+        <article class="conference-item" data-year="2025"><div><span class="publication-year">ACR · 2025</span><h3>What Makes a Logo Premium? How Brand Logo Kerning Affects Premium Brand Evaluation</h3><p>Yuxuan Sun, Youkai (Kyle) Xiao*, Dickson Tok, Xing-Yu (Marcos) Chu, Yunhui Huang</p></div><p class="conference-venue">WASHINGTON, D.C. · ACR</p></article>
+        <article class="conference-item" data-year="2025"><div><span class="publication-year">JMS · 2025</span><h3>Jointly Share in Proximity or Individually Enjoy in Distance?</h3><p>Youkai (Kyle) Xiao*, Yunhui Huang, Xing-Yu (Marcos) Chu, Lingyi Tang</p></div><p class="conference-venue" data-zh="成都 · 营销科学学术年会" data-en="CHENGDU · JMS CONFERENCE">成都 · 营销科学学术年会</p></article>
+        <article class="conference-item" data-year="2024"><div><span class="publication-year">KSMS · 2024</span><h3>More Is More: Estimating Caloric Amounts by Visual Density</h3><p>Youkai (Kyle) Xiao*, Yunhui Huang, Xing-Yu (Marcos) Chu</p></div><p class="conference-venue">SEOUL · BEST CONFERENCE PAPER AWARD</p></article>
+      </div></section>
+    </section>
+
+    <section class="home-chapter home-scroll-target reveal" id="experience" data-section="experience.html">
+      <section class="page-hero"><span class="page-number">04 / EXPERIENCE</span><div><h1 data-zh-html="<span>学术</span><em>经历</em>" data-en-html="<span>Academic</span><em>experience</em>"><span>学术</span><em>经历</em></h1></div></section>
+      <section class="content-section"><span class="content-label" data-zh="教学" data-en="TEACHING">教学</span><div class="content-body"><article class="timeline-item"><p class="timeline-year">SPRING 2025</p><h3 data-zh="消费者行为（本科）" data-en="Consumer Behavior (Undergraduate)">消费者行为（本科）</h3><p data-zh="课程助教" data-en="Teaching Assistant">课程助教</p></article><article class="timeline-item"><p class="timeline-year">FALL 2023</p><h3 data-zh="市场营销（MBA）" data-en="Marketing (MBA)">市场营销（MBA）</h3><p data-zh="课程助教" data-en="Teaching Assistant">课程助教</p></article></div></section>
+      <section class="content-section"><span class="content-label" data-zh="审稿经历" data-en="REVIEW EXPERIENCE">审稿经历</span><div class="content-body service-grid">
+        <article class="timeline-item service-item"><p class="timeline-year" data-zh="中文期刊" data-en="CHINESE JOURNAL">中文期刊</p><h3>《文化产业研究》</h3></article><article class="timeline-item service-item"><p class="timeline-year" data-zh="中文期刊" data-en="CHINESE JOURNAL">中文期刊</p><h3>《南大商学评论》</h3></article><article class="timeline-item service-item"><p class="timeline-year" data-zh="英文期刊" data-en="ENGLISH JOURNAL">英文期刊</p><h3>Journal of Business Ethics</h3></article><article class="timeline-item service-item"><p class="timeline-year" data-zh="学术会议" data-en="CONFERENCE">学术会议</p><h3>Association for Consumer Research</h3></article><article class="timeline-item service-item"><p class="timeline-year" data-zh="学术会议" data-en="CONFERENCE">学术会议</p><h3>American Marketing Association</h3></article>
+      </div></section>
+      <section class="content-section"><span class="content-label" data-zh="荣誉" data-en="HONORS">荣誉</span><div class="content-body"><h2 data-zh="最佳会议论文奖" data-en="Best Conference Paper Award">最佳会议论文奖</h2><p data-zh="2024 KSMS 国际会议" data-en="2024 KSMS International Conference">2024 KSMS 国际会议</p></div></section>
+    </section>
   </body>
 </html>

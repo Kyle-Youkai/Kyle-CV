@@ -16,7 +16,9 @@ python3 -m http.server 8000
 - 首页入口：编辑 `index.html`
 - 详细页面：编辑 `about.html`、`research.html`、`publications.html` 和 `experience.html`
 - 配色与排版：编辑 `styles.css` 顶部的 CSS 变量
-- 头像：替换 `头像.jpg`（建议使用正方形图片）
+- 头像：替换 `图像资源/头像.jpg`（建议使用正方形图片）
+- Q 版形象：替换 `图像资源/Q版形象-透明.png`
+- 学校图片：替换 `图像资源/南大标识.png`、`南大名字.png`、`华科标识.png` 和 `华科名字.png`
 - 简历：替换 `RESUME_KYLE.pdf`
 
 ## 发布
