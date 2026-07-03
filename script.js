@@ -97,6 +97,23 @@ function applyScriptFonts(root = document.body) {
   });
 }
 
+function addYearWatermarks() {
+  document.querySelectorAll(".timeline-item, .publication-item, .conference-item, .year-card").forEach((item) => {
+    if (item.querySelector(":scope > .year-watermark")) return;
+    const source = item.dataset.year || item.querySelector(".timeline-year, .publication-year")?.textContent || "";
+    const years = [...new Set(source.match(/(?:19|20)\d{2}/g) || [])];
+    if (!years.length) return;
+
+    const watermark = document.createElement("span");
+    watermark.className = "year-watermark";
+    watermark.setAttribute("aria-hidden", "true");
+    watermark.textContent = years.join(" — ");
+    item.append(watermark);
+  });
+}
+
+addYearWatermarks();
+
 function setLanguage(language) {
   currentLanguage = language;
   const languageKey = language === "zh" ? "zh" : "en";
