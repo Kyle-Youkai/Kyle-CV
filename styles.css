@@ -57,7 +57,7 @@ html[data-language="en"] .language-indicator { transform: translateX(36px); }
 .home-chapter::before { display: none; }
 .home-chapter::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(circle at 86% 10%, rgba(255,255,255,.6), transparent 28%); }
 .home-chapter > * { position: relative; z-index: 1; }
-.home-chapter > .page-hero { position: relative; min-height: clamp(520px, 68vh, 760px); display: block; padding: clamp(2rem, 4vw, 4rem); border: 0; border-radius: 0; background: transparent; box-shadow: none; backdrop-filter: none; }
+.home-chapter > .page-hero { position: relative; min-height: clamp(400px, 52vh, 600px); display: block; padding: clamp(2rem, 4vw, 4rem); border: 0; border-radius: 0; background: transparent; box-shadow: none; backdrop-filter: none; }
 .home-chapter > .page-hero::before, .home-chapter > .page-hero::after { display: none; }
 .home-chapter > .page-hero .page-number { position: absolute; top: clamp(2rem, 4vw, 4rem); left: clamp(2rem, 4vw, 4rem); }
 .home-chapter > .page-hero > div { position: absolute; inset: clamp(5.5rem, 9vw, 8rem) clamp(8rem, 20vw, 24rem) clamp(2rem, 4vw, 4rem); }
