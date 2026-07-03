@@ -26,6 +26,15 @@ if (currentPage !== "index.html") {
   document.body.classList.add("home-page");
 }
 
+const mobileQuery = window.matchMedia("(max-width: 680px)");
+function syncDeviceMode() {
+  const device = mobileQuery.matches ? "mobile" : "desktop";
+  document.documentElement.dataset.device = device;
+  document.body.classList.toggle("is-mobile", device === "mobile");
+}
+syncDeviceMode();
+mobileQuery.addEventListener("change", syncDeviceMode);
+
 const sectionNav = document.createElement("nav");
 sectionNav.className = "section-nav";
 sectionNav.setAttribute("aria-label", "Section navigation");
@@ -56,6 +65,38 @@ breathingSpace.className = "page-breathing-space";
 breathingSpace.setAttribute("aria-hidden", "true");
 document.body.append(breathingSpace);
 
+function applyScriptFonts(root = document.body) {
+  const textNodes = [];
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+  let node;
+
+  while ((node = walker.nextNode())) {
+    const parent = node.parentElement;
+    if (!parent || !node.nodeValue.trim() || parent.closest("script, style, textarea, .text-zh, .text-latin")) continue;
+    textNodes.push(node);
+  }
+
+  textNodes.forEach((textNode) => {
+    const parts = textNode.nodeValue.split(/([\u3000-\u303f\u3400-\u9fff\uf900-\ufaff\uff00-\uffef]+)/g).filter(Boolean);
+    if (!parts.some((part) => /[\u3400-\u9fff\uf900-\ufaff]/.test(part))) {
+      const span = document.createElement("span");
+      span.className = "text-latin";
+      span.textContent = textNode.nodeValue;
+      textNode.replaceWith(span);
+      return;
+    }
+
+    const fragment = document.createDocumentFragment();
+    parts.forEach((part) => {
+      const span = document.createElement("span");
+      span.className = /[\u3000-\u303f\u3400-\u9fff\uf900-\ufaff\uff00-\uffef]/.test(part) ? "text-zh" : "text-latin";
+      span.textContent = part;
+      fragment.append(span);
+    });
+    textNode.replaceWith(fragment);
+  });
+}
+
 function setLanguage(language) {
   currentLanguage = language;
   const languageKey = language === "zh" ? "zh" : "en";
@@ -82,6 +123,7 @@ function setLanguage(language) {
 
   languageButton.setAttribute("aria-label", language === "zh" ? "切换至英文" : "Switch to Chinese");
   localStorage.setItem("preferredLanguage", language);
+  applyScriptFonts();
 }
 
 languageButton.addEventListener("click", () => setLanguage(currentLanguage === "zh" ? "en" : "zh"));
@@ -102,6 +144,13 @@ document.querySelectorAll(".portal-card, .timeline-item, .publication-item, .int
     const bounds = card.getBoundingClientRect();
     card.style.setProperty("--pointer-x", `${event.clientX - bounds.left}px`);
     card.style.setProperty("--pointer-y", `${event.clientY - bounds.top}px`);
+  });
+});
+
+document.querySelectorAll(".home-chapter[data-section]").forEach((chapter) => {
+  chapter.addEventListener("click", (event) => {
+    if (event.target.closest("a, button")) return;
+    window.location.href = chapter.dataset.section;
   });
 });
 
