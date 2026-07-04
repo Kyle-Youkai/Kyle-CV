@@ -277,6 +277,18 @@ html[data-language="en"] .bilingual-name .name-zh { font-size: clamp(2.2rem, 3.5
 .compact-interest-grid .interest-item { min-height: 0; padding: 1.25rem 2.6rem 1.25rem 1.25rem; border-radius: 16px; }
 .compact-interest-grid .interest-item::before { top: 50%; right: 1rem; transform: translateY(-50%); }
 .compact-interest-grid .interest-item h3 { margin: 0; font-size: clamp(1rem, 1.6vw, 1.3rem); }
+.home-education { display: grid; grid-template-columns: minmax(210px, 2.3fr) minmax(0, 7.7fr); gap: clamp(2.5rem, 5vw, 6rem); padding: clamp(3rem, 5vw, 5.5rem); border: 1px solid rgba(255,255,255,.82); border-radius: 34px 110px 34px 34px; background: linear-gradient(145deg, rgba(255,255,255,.5), rgba(225,241,248,.34)); box-shadow: 0 22px 55px rgba(31,86,122,.1), inset 0 1px 0 rgba(255,255,255,.84); }
+.school-list { display: grid; grid-template-columns: minmax(0, 1fr); gap: .9rem; min-width: 0; }
+.school-card { position: relative; display: grid; grid-template-columns: 112px minmax(0, 1fr); grid-template-rows: auto 1fr; grid-template-areas: "mark name" "mark copy"; gap: .55rem clamp(1.2rem, 2.4vw, 2rem); min-width: 0; min-height: 210px; padding: clamp(1.6rem, 2.6vw, 2.3rem); overflow: hidden; border: 1px solid rgba(255,255,255,.78); border-radius: 18px; background: linear-gradient(145deg, rgba(255,255,255,.7), rgba(212,234,247,.42)); box-shadow: 0 14px 34px rgba(47,102,136,.08), inset 0 1px 0 rgba(255,255,255,.75); transition: transform .3s ease, box-shadow .3s ease, border-radius .35s ease; }
+.school-card:hover { transform: translateY(-4px); border-radius: 12px 46px 12px 12px; box-shadow: var(--shadow-lift), inset 0 1px 0 rgba(255,255,255,.92); }
+.school-card-mark { grid-area: mark; align-self: center; width: 112px; height: 112px; padding: .45rem .8rem .45rem .25rem; object-fit: contain; border-right: 1px solid rgba(39,103,137,.12); }
+.school-card-name { grid-area: name; width: auto; max-width: 145px; height: 38px; object-fit: contain; object-position: left center; }
+.school-card-copy { grid-area: copy; min-width: 0; }
+.school-card-year { margin: 0 0 .45rem; color: var(--blue-dark); font-family: var(--mono); font-size: .66rem; }
+.school-card-copy h3 { margin: 0 0 .45rem; font-family: var(--serif); font-size: clamp(2rem, 2.8vw, 3.15rem); font-weight: 400; line-height: 1.12; }
+.school-card-major { margin: 0; color: var(--ink); font-size: .9rem; line-height: 1.5; }
+.school-card-institution { margin: .25rem 0 0; color: var(--muted); font-size: .86rem; line-height: 1.5; }
+.school-card-arrow { position: absolute; top: 1rem; right: 1rem; color: var(--blue-dark); opacity: .55; }
 .page-main { padding-bottom: clamp(9rem, 17vh, 14rem); }
 .page-breathing-space { position: relative; height: clamp(140px, 24vh, 280px); overflow: hidden; pointer-events: none; }
 .page-breathing-space::before { content: ""; position: absolute; left: 50%; top: 26%; width: min(760px, 74vw); height: 1px; transform: translateX(-50%); background: linear-gradient(90deg, transparent, rgba(39,103,137,.2), transparent); }
@@ -416,4 +428,12 @@ html[data-language="en"] .bilingual-name .name-zh { font-size: clamp(2.2rem, 3.5
     font-size: .8rem;
     line-height: 1.45;
   }
+  .home-education { display: flex; flex-direction: column; width: 100%; padding: 1rem; gap: 1rem; border-radius: 20px 42px 20px 20px; }
+  .school-list { width: 100%; gap: .8rem; }
+  .school-card { display: grid; grid-template-columns: 64px minmax(0, 1fr); grid-template-rows: auto; grid-template-areas: "mark copy"; width: 100%; min-width: 0; min-height: 0; margin: 0; padding: 1.1rem; gap: 1rem; align-items: center; }
+  .school-card-mark { grid-area: mark; width: 64px; height: 64px; padding: .2rem .7rem .2rem 0; }
+  .school-card-name { display: none; }
+  .school-card-copy { grid-area: copy; width: 100%; min-width: 0; }
+  .school-card-copy h3 { margin-bottom: .35rem; font-size: clamp(1.3rem, 6vw, 1.65rem); line-height: 1.15; overflow-wrap: break-word; }
+  .school-card-major, .school-card-institution { max-width: 100%; margin-top: .18rem; white-space: normal; overflow-wrap: break-word; font-size: .8rem; line-height: 1.45; }
 }
