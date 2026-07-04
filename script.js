@@ -14,10 +14,8 @@ document.querySelector(".header-actions").insertBefore(cvButton, languageButton)
 const currentPage = window.location.pathname.split("/").pop() || "index.html";
 const sitePages = [
   { file: "index.html", anchor: "#home", number: "00", zh: "网站首页", en: "Home" },
-  { file: "about.html", anchor: "#profile", number: "01", zh: "个人简介", en: "Profile" },
-  { file: "research.html", anchor: "#research", number: "02", zh: "研究方向", en: "Research" },
-  { file: "publications.html", anchor: "#publications", number: "03", zh: "学术成果", en: "Work" },
-  { file: "experience.html", anchor: "#experience", number: "04", zh: "学术经历", en: "Experience" },
+  { file: "publications.html", number: "01", zh: "学术成果", en: "Work" },
+  { file: "experience.html", number: "02", zh: "学术经历", en: "Experience" },
 ];
 
 if (currentPage !== "index.html") {
@@ -180,13 +178,6 @@ document.querySelectorAll(".portal-card, .timeline-item, .publication-item, .int
     const bounds = card.getBoundingClientRect();
     card.style.setProperty("--pointer-x", `${event.clientX - bounds.left}px`);
     card.style.setProperty("--pointer-y", `${event.clientY - bounds.top}px`);
-  });
-});
-
-document.querySelectorAll(".home-chapter[data-section]").forEach((chapter) => {
-  chapter.addEventListener("click", (event) => {
-    if (event.target.closest("a, button")) return;
-    window.location.href = chapter.dataset.section;
   });
 });
 
