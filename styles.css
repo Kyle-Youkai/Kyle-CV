@@ -314,6 +314,15 @@ html[data-language="en"] .bilingual-name .name-zh { font-size: clamp(2.2rem, 3.5
   .home-info { width: calc(100% - 2 * var(--gutter)); margin: 2.5rem auto; }
   .home-section-heading { grid-template-columns: 1fr; gap: 1rem; padding: 1.2rem; border-radius: 18px; }
   .home-section-heading h2 { font-size: 2.35rem; }
+  .home-info > .education-section { grid-template-columns: minmax(0, 1fr); gap: 1rem; padding: 1rem; border-radius: 20px 42px 20px 20px; }
+  .home-info > .education-section > .content-label { margin-bottom: .15rem; }
+  .home-info > .education-section > .content-body { width: 100%; min-width: 0; }
+  .home-info .education-card { width: 100%; min-height: 0; padding: 1.1rem; grid-template-columns: 68px minmax(0, 1fr); grid-template-rows: auto auto; grid-template-areas: "mark name" "copy copy"; gap: .75rem .9rem; }
+  .home-info .education-copy { width: 100%; min-width: 0; }
+  .home-info .education-copy h3 { font-size: clamp(1.35rem, 7vw, 1.75rem); overflow-wrap: anywhere; }
+  .home-info .school-mark { width: 68px; height: 68px; }
+  .home-info .school-name { width: min(100%, 130px); height: 38px; }
+  .home-info .education-card .year-watermark { right: .5rem; bottom: .25rem; font-size: 2rem !important; }
   .compact-interest-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .compact-interest-grid .interest-item { padding: 1rem 2rem 1rem 1rem; }
   .home-chapter { width: calc(100% - 2 * var(--gutter)); min-height: auto; margin: 2.5rem auto; padding: .75rem; border-radius: 20px; }
