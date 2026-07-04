@@ -146,13 +146,32 @@ function setLanguage(language) {
 languageButton.addEventListener("click", () => setLanguage(currentLanguage === "zh" ? "en" : "zh"));
 setLanguage(currentLanguage);
 
-const emailToggle = document.querySelector(".email-toggle");
-const emailAddress = document.querySelector(".email-address");
-if (emailToggle && emailAddress) {
-  emailToggle.addEventListener("click", () => {
-    const expanded = emailToggle.getAttribute("aria-expanded") === "true";
-    emailToggle.setAttribute("aria-expanded", String(!expanded));
-    emailAddress.hidden = expanded;
+const contactButtons = document.querySelectorAll(".contact-toggle");
+const contactDisplay = document.querySelector(".contact-detail-display");
+if (contactButtons.length && contactDisplay) {
+  const contactLabel = contactDisplay.querySelector(".contact-detail-label");
+  const contactValue = contactDisplay.querySelector(".contact-detail-value");
+
+  contactButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const wasExpanded = button.getAttribute("aria-expanded") === "true";
+      contactButtons.forEach((item) => {
+        item.setAttribute("aria-expanded", "false");
+        item.classList.remove("is-active");
+      });
+
+      if (wasExpanded) {
+        contactDisplay.hidden = true;
+        return;
+      }
+
+      button.setAttribute("aria-expanded", "true");
+      button.classList.add("is-active");
+      contactLabel.textContent = button.dataset.contactLabel;
+      contactValue.textContent = button.dataset.contactValue;
+      contactValue.href = button.dataset.contactHref;
+      contactDisplay.hidden = false;
+    });
   });
 }
 
